@@ -23,6 +23,14 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		
+		<!-- TODO : ** Welcome Guest | Logout ** is displayed with these 2 changes-->
+		<!-- Need to find why?  -->
+		<!-- Also getting below error in spring boot startup: This might be causing above issue
+		ThymeleafAutoConfiguration.ThymeleafSecurityDialectConfiguration:
+        	Did not match:
+         		- @ConditionalOnClass did not find required class 'org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect' (OnClassCondition) 
+		 -->
 		<!-- <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
 		<thymeleaf.version>3.0.9.RELEASE</thymeleaf.version> -->
 	</properties>
