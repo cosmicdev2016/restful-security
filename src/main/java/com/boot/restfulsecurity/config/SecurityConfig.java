@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+			.antMatchers("/").permitAll()
 			//.antMatchers("/posts/**").permitAll()
 			.antMatchers("/posts/add").hasRole("ADMIN")
 			.antMatchers("/posts/drafts").hasRole("USER")
@@ -38,8 +39,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.anyRequest().authenticated() //everything should be authenticated (should be the last statement)
 				.and()
 			.formLogin()
-				.and()
-			.logout();
+				.loginPage("/login")
+				.permitAll()
+					.and()
+			.logout()
+				.logoutSuccessUrl("/login?logout")
+				.permitAll();
 			
 	}
 
