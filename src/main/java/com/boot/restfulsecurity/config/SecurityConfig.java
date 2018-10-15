@@ -32,9 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 			.antMatchers("/").permitAll()
 			//.antMatchers("/posts/**").permitAll()
-			.antMatchers("/posts/add").hasRole("ADMIN")
-			.antMatchers("/posts/drafts").hasRole("USER")
-			.antMatchers("/posts/list").permitAll() // list is open to all
+			.antMatchers("/posts/add/").hasRole("ADMIN")
+			.antMatchers("/posts/drafts/").hasRole("USER")
+			.antMatchers("/posts/list/").permitAll() // list is open to all
 			.antMatchers("/posts/**").permitAll() // rest of the urls can be open to all
 			.anyRequest().authenticated() //everything should be authenticated (should be the last statement)
 				.and()
